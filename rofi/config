@@ -1,0 +1,10 @@
+rofi.theme: /home/liam/.config/rofi/customdark.rasi
+rofi.combi-modi:	window,drun
+rofi.modi:	drun
+rofi.font:	FreeMono Bold 16
+rofi.kb-cancel:	Escape,Super_L
+rofi.show-icons:	true
+rofi.icon-theme:	Papirus-Dark
+rofi.display-combi:	>>> 	
+rofi.display-drun:
+rofi.columns:	3	
