@@ -8,8 +8,16 @@
 alias ls='ls --color=auto'
 alias clipboard='xclip -selection c'
 
+
+source ~/.config/.git-prompt.sh
+
 #PS1='[\u@\h \W]\$ '
-PS1='\[\033[01;33m\]\u\[\033[01;31m\]@\[\033[01;34m\]\h\[\033[01;31m\]:\[\033[01;33m\]\W\[\033[1;32m\]\$\[\033[0;00m\] '
+
+
+
+PS1='\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;34m\]\h\[\033[01;33m\]:\[\033[01;32m\]\W\[\033[01;31m\]$(__git_ps1) \[\033[01;33m\]▶\[\033[0m\] '
+
+# PS1='\[\033[01;33m\]\u\[\033[01;31m\]@\[\033[01;34m\]\h\[\033[01;31m\]:\[\033[01;36m\]\W\[\033[1;32m\]\$\[\033[0;00m\] '
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
