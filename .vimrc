@@ -1,4 +1,5 @@
-colorscheme ron
+colorscheme gruvbox
+set background=dark
 
 syntax on
 set number
@@ -26,3 +27,4 @@ inoremap { {}<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 
+highlight Normal guibg=NONE ctermbg=NONE
