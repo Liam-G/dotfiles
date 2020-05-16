@@ -1,4 +1,5 @@
 colorscheme gruvbox
+"colorscheme ron
 set background=dark
 
 syntax on
@@ -21,10 +22,5 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_max_diagnostics_to_display = 0
 let g:ycm_autoclose_preview_window_after_completion= 1
 
-inoremap ' ''<left>
-inoremap " ""<left>
-inoremap { {}<left>
-inoremap ( ()<left>
-inoremap [ []<left>
 
 highlight Normal guibg=NONE ctermbg=NONE

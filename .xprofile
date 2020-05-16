@@ -1,0 +1,2 @@
+bash /home/liam/.xmonad/startup.sh
+exec xmonad
