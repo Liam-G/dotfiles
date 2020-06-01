@@ -1,6 +1,7 @@
 colorscheme gruvbox
 "colorscheme ron
 set background=dark
+set textwidth=80
 
 syntax on
 set number
@@ -17,10 +18,10 @@ set tabstop=4
 set shiftwidth=4
 set whichwrap+=<,>,h,l,[,]
 
-let g:ycm_global_ycm_extra_conf = '~/.config/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_max_diagnostics_to_display = 0
-let g:ycm_autoclose_preview_window_after_completion= 1
+"let g:ycm_global_ycm_extra_conf = '~/.config/.ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
+"let g:ycm_max_diagnostics_to_display = 0
+"let g:ycm_autoclose_preview_window_after_completion= 1
 
 
 highlight Normal guibg=NONE ctermbg=NONE

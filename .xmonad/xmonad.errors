@@ -1,15 +1,14 @@
 
-xmonad.hs:4:15: warning: [-Wdeprecations]
-    In the use of ‘defaultConfig’
-    (imported from XMonad, but defined in XMonad.Config):
-    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
-  |
-4 | main = xmonad defaultConfig
-  |               ^^^^^^^^^^^^^
-
-xmonad.hs:5:1: warning: [-Wtabs]
-    Tab character found here, and in 7 further locations.
+xmonad.hs:108:1: warning: [-Wtabs]
+    Tab character found here, and in 10 further locations.
     Please use spaces instead.
-  |
-5 |         { terminal = "termite"
-  | ^^^^^^^^
+    |
+108 |         ] 
+    | ^^^^^^^^
+
+xmonad.hs:125:43: warning: [-Wdeprecations]
+    In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
+    Deprecated: "Use spacingRaw instead."
+    |
+125 | addSpace     = renamed [CutWordsLeft 2] . spacing gap
+    |                                           ^^^^^^^
