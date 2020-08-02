@@ -1,10 +1,18 @@
-rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.theme: colors-rofi-dark.rasi
 rofi.combi-modi:	window,drun
 rofi.modi:	drun
-rofi.font:	Inconsolata 12
+rofi.font:	Hack 10
 rofi.kb-cancel:	Escape,Super_L
 rofi.show-icons:	true
 rofi.icon-theme:	Papirus-Dark
 rofi.display-combi:	>>> 	
 rofi.display-drun:
-rofi.columns:	2
+rofi.columns:	1
+
+rofi.lines: 20
+rofi.location: 1
+rofi.padding: 20
+rofi.width: 30
+rofi.xoffset: 12
+rofi.yoffset: 37
+rofi.width: 20 

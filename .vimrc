@@ -25,3 +25,4 @@ set whichwrap+=<,>,h,l,[,]
 
 
 highlight Normal guibg=NONE ctermbg=NONE
+

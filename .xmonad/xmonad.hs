@@ -48,7 +48,7 @@ import Control.Monad (liftM2, liftM)
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "termite"
+myTerminal = "alacritty"
 
 
 -- The command to use as a launcher, to launch commands that don't have
