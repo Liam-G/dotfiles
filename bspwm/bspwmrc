@@ -1,0 +1,69 @@
+#! /bin/sh
+~/.config/bspwm/startup.sh
+#sxhkd &
+#flameshot &
+#nm-applet &
+#fg &
+#~/.config/polybar/launch.sh &
+#compton &
+#~/.config/dunst/dunstwal &
+
+#bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+
+# Give each monitor 10 workspaces.
+for m in $(bspc query --monitors --names); do
+    bspc monitor $m -d misc web dev sys media doc pic other
+done
+
+#Swallowing
+#(ps x | grep bspswallow | grep -v grep) || bspswallow &
+
+xresource() {
+	  xrdb -query | grep -E "^(bspwm|\*)\.$1" | sed -r "s/^[^:]+:\s+//" | tail
+		  -n 1
+}
+
+# As an example
+bspc config focused_border_color $(xresource color4)
+
+
+
+
+
+
+
+bspc config border_width         2
+bspc config window_gap          12
+#bspc config focused_border_color '#FFFFFF'
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config top_monocle_padding  -25
+bspc config focus_follows_pointer true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+bspc config pointer_modifier move
+bspc config pointer_modifier mod1
+
+#i=0
+#n=`bspc query -M | wc -l`  # count number of lines in bspwm's monitor list
+#per=$(( 10 / n ))          # number of desktops per monitor
+#for monitor in `bspc query -M`; do
+#    bspc monitor $monitor -d `seq $i $(( i + per - 1 ))`
+#    # seq is end-inclusive; `seq 1 $((1+2))` returns "1 2 3"
+#    i=$(( i + per ))
+#done
+
+# run the xrandr command if an external monitor is connected to the
+# laptop.  This must be executed before the polybar command, so that
+# polybar can set the two separate bars properly.
+#if [ -x ~/.config/bspwm/dual_monitor.sh];then
+#    ~/.config/bspwm/dual_monitor.sh
+#fi
+

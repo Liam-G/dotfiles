@@ -1,0 +1,26 @@
+#!/bin/bash
+
+kolor00=$(xrdb -query | awk '/*.color'0:'/ {print substr($2,2) }')
+kolor01=$(xrdb -query | awk '/*.color'1:'/ {print substr($2,2) }')
+kolor02=$(xrdb -query | awk '/*.color'2:'/ {print substr($2,2) }')
+kolor03=$(xrdb -query | awk '/*.color'3:'/ {print substr($2,2) }')
+kolor04=$(xrdb -query | awk '/*.color'4:'/ {print substr($2,2) }')
+kolor05=$(xrdb -query | awk '/*.color'5:'/ {print substr($2,2) }')
+kolor06=$(xrdb -query | awk '/*.color'6:'/ {print substr($2,2) }')
+kolor07=$(xrdb -query | awk '/*.color'7:'/ {print substr($2,2) }')
+kolor08=$(xrdb -query | awk '/*.color'8:'/ {print substr($2,2) }')
+kolor09=$(xrdb -query | awk '/*.color'9:'/ {print substr($2,2) }')
+kolor10=$(xrdb -query | awk '/*.color'10:'/ {print substr($2,2) }')
+kolor11=$(xrdb -query | awk '/*.color'11:'/ {print substr($2,2) }')
+kolor12=$(xrdb -query | awk '/*.color'12:'/ {print substr($2,2) }')
+kolor13=$(xrdb -query | awk '/*.color'13:'/ {print substr($2,2) }')
+kolor14=$(xrdb -query | awk '/*.color'14:'/ {print substr($2,2) }')
+kolor15=$(xrdb -query | awk '/*.color'15:'/ {print substr($2,2) }')
+
+# inject pywal colors into dunst config
+sed -i "s/background = .*/background = \"#${kolor03}\"/g" ~/.config/dunst/dunstrc
+sed -i "s/foreground = .*/foreground = \"#${kolor00}\"/g" ~/.config/dunst/dunstrc
+sed -i "s/frame_color = .*/frame_color = \"#${kolor11}\"/g" ~/.config/dunst/dunstrc
+
+pkill dunst
+dunst &
