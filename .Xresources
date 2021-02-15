@@ -1,1 +1,2 @@
 #include ".Xresources.d/gruvbox"
+Xft.dpi: 96

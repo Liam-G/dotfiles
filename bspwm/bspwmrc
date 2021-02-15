@@ -8,12 +8,12 @@
 #compton &
 #~/.config/dunst/dunstwal &
 
-#bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
-
+bspc monitor eDP1 -d 1 2 3 4 5
+bspc monitor HDMI2 -d 1 2 3 4 5
 # Give each monitor 10 workspaces.
-for m in $(bspc query --monitors --names); do
-    bspc monitor $m -d misc web dev sys media doc pic other
-done
+#for m in $(bspc query --monitors --names); do
+#    bspc monitor $m -d misc web dev sys media doc pic other
+#done
 
 #Swallowing
 #(ps x | grep bspswallow | grep -v grep) || bspswallow &
@@ -24,13 +24,7 @@ xresource() {
 }
 
 # As an example
-bspc config focused_border_color $(xresource color4)
-
-
-
-
-
-
+bspc config focused_border_color '#458588'
 
 bspc config border_width         2
 bspc config window_gap          12

@@ -13,26 +13,31 @@
 
 [color]
 
-bg = #1F1F1F
-fg = #FFFFFF
+bg = ${xrdb:background:#1F1F1F}
+fg = ${xrdb:foreground:#FFFFFF}
 fg-alt = #A9ABB0
 
-acolor = #09cb71
-curgent = #9d235b
-coccupied = #1e66eb
+acolor = #FFFFFF
+curgent = #EF5350
+coccupied = #42A5F5
 
-shade1 = #212121
-shade2 = #424242
-shade3 = #616161
-shade4 = #757575
-shade5 = #9E9E9E
-shade6 = #BDBDBD
-shade7 = #D4D4D4
-shade8 = #EEEEEE
+shade0 = ${xrdb:color0:#FF4F00}
+shade1 = ${xrdb:color1:#FF6F00}
+shade2 = ${xrdb:color2:#FF8F00}
+shade3 = ${xrdb:color3:#FFA000}
+shade4 = ${xrdb:color4:#FFB300}
+shade5 = ${xrdb:color5:#FFC107}
+shade6 = ${xrdb:color6:#FFCA28}
+shade7 = ${xrdb:color7:#FFD54F}
+shade8 = ${xrdb:color8:#FFE082}
+shade9 = ${xrdb:color9:#FFE082}
+shade10 = ${xrdb:color10:#FFE082}
+shade11 = ${xrdb:color11:#FFE082}
+shade12 = ${xrdb:color12:#FFE082}
+shade13 = ${xrdb:color13:#FFE082}
+shade14 = ${xrdb:color14:#FFE082}
+shade15 = ${xrdb:color15:#FFE082}
 txt = #2C2C2C
-
-xblue = 1e66eb
-xred = cc241d
 
 ## Material Colors
 
@@ -59,112 +64,137 @@ blue-gray = #546e7a
 ;==========================================================
 
 [bar/main]
-monitor = HDMI2
 height = 25
 bottom = false
 fixed-center = false
 line-size = 2
-wm-restack = bspwm
-
 background = ${color.bg}
 foreground = ${color.fg}
 tray-position = center
+;tray-background = ${color.shade4}
 ;==========================================================
 
-font-0 = "Fantasque Sans Mono:pixelsize=10;3"
-font-1 = "Iosevka Nerd Font:pixelsize=13;3"
-
+;font-0 = "Fantasque Sans Mono:pixelsize=10;3"
+;font-1 = "Iosevka Nerd Font:pixelsize=12;3"
+font-0 = "Hack Nerd Font:pixelsize=10;3"
+font-1 = "Hack Nerd Font:pixelsize=10;3"
+font-2 = "Hack Nerd Font:pixelsize=10;3"
+;==========================================================
+;==========================================================
 ;==========================================================
 
 enable-ipc = true
 cursor-click = pointer
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+wm-restack = bspwm
 ;== Module Location ========================================================
 
-modules-left = menu bspwm monitor arch github reddit youtube
-modules-right = volume battery network date powermenu
+modules-left = menu bspwm monitor 
+modules-right = volume battery date powermenu
  
-[bar/laptop]
-monitor = eDP1
-height = 25
-bottom = false
-fixed-center = false
-line-size = 2
-wm-restack = bspwm
-
-background = ${color.bg}
-foreground = ${color.fg}
-tray-position = center
-;==========================================================
-
-font-0 = "Fantasque Sans Mono:pixelsize=10;3"
-font-1 = "Iosevka Nerd Font:pixelsize=13;3"
-
-;==========================================================
-
-enable-ipc = true
-cursor-click = pointer
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-;== Module Location ========================================================
-
-modules-left = menu bspwm monitor arch github reddit youtube
-modules-right = volume battery network date powermenu
 ;== Modules ========================================================
 
 [module/menu]
 type = custom/text
 content = 
+
 ;alt icons = 
 content-padding = 2
-content-background = ${color.shade1}
+content-background = ${color.bg}
 content-foreground = ${color.fg}
 click-left = ~/.config/polybar/scripts/menu
 click-middle = ~/.config/polybar/scripts/menu_full
+click-right = ~/.config/polybar/scripts/color-switch.sh
 
-[module/workspaces]
-type = internal/xworkspaces
-pin-workspaces = false
-enable-click = true
-enable-scroll = true
-format-padding = 1
+[module/bspwm]
+type = internal/bspwm
 
-;yicon-0 = 1;❶
-;icon-1 = 2;❷
-;icon-2 = 3;❸
-;icon-3 = 4;❹
-;icon-4 = 5;❺
-;icon-5 = 6;❻
-;icon-6 = 7;❼
-;icon-7 = 8;❽
-;icon-8 = 9;❾
-;icon-9 = 10;❿
+;ws-icon-0 = misc;
+;ws-icon-1 = dev;󰘧
+;ws-icon-1 = dev;
+;ws-icon-1 = dev;󰯠
+;ws-icon-2 = web;󰆋
+;ws-icon-2 = web;
+;ws-icon-3 = irc;黎
+;ws-icon-4 = git;
+;ws-icon-5 = sys;
+;ws-icon-6 = doc;
+;ws-icon-6 = doc;󰯂
+;ws-icon-7 = pic;
+;ws-icon-8 = media;ﱘ
+;ws-icon-default = 
 
+
+;format-background = ${color.bg}
+
+;label-focused = %name%
+;label-focused-font = 2
+;label-focused-foreground = ${color.bg}
+;label-focused-background = ${color.shade4}
+;label-focused-underline= ${colors.yellow}
+;label-focused-padding = 3
+
+;label-occupied = ${self.label-focused}
+;label-occupied-foreground = ${color.shade4}
+;label-occupied-background = ${color.bg}
+;label-occupied-padding = 3
+label-occupied-underline = ${color.shade4}
+
+;label-urgent = ${self.label-focused}
+;label-urgent-font = 2
+;label-urgent-background = ${color.shade1}
+;label-urgent-padding = 3
+
+;label-empty = ${self.label-focused}
+;label-empty-foreground = #93a1a1
+;label-empty-background = ${color.bg}
+;label-empty-padding = 3
+;label-empty-font = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+
+
+;type = internal/xworkspaces
+;pin-workspaces = false
+;enable-click = true
+;enable-scroll = true
+;format-padding = 1
+;
+;;yicon-0 = 1;❶
+;;icon-1 = 2;❷
+;;icon-2 = 3;❸
+;;icon-3 = 4;❹
+;;icon-4 = 5;❺
+;;icon-5 = 6;❻
+;;icon-6 = 7;❼
+;;icon-7 = 8;❽
+;;icon-8 = 9;❾
+;;icon-9 = 10;❿
+;
 icon-default = 
-
 format = <label-state>
-format-background = ${color.shade2}
-label-active =  %name%
+format-background = ${color.shade4}
+label-focused =  %name%
 label-occupied =  %name%
 label-urgent =  %name%
 label-empty =  %name%
-
+;
 label-empty-padding = 1
 label-active-padding = 1
 label-urgent-padding = 1
 label-occupied-padding = 1
-
+;
 label-empty-foreground = ${color.fg}
 label-active-foreground = ${color.acolor}
 label-urgent-foreground = ${color.curgent}
-label-occupied-foreground = ${color.coccupied}
+label-occupied-foreground = ${color.fg}
 
-[module/arch]
+[module/google]
 type = custom/text
 content =  
 content-padding = 2
@@ -218,13 +248,21 @@ time-format = %H:%M
 battery = BAT0
 adapter = AC
 format-charging = <animation-charging> <label-charging>
-format-charging-background = ${color.shade5}
+format-charging-background = ${color.shade4}
+format-charging-foreground = ${color.bg}
 format-charging-padding = 2
 label-charging = %percentage%%
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-background = ${color.shade5}
+format-discharging-background = ${color.shade4}
+format-discharging-foreground = ${color.bg}
 format-discharging-padding = 2
+
+
 label-discharging = %percentage%%
+label-discharging-foreground = ${color.bg}
+
+format-full-background = ${color.shade4}
+
 format-full = <label-full>
 
 format-full-prefix = " "
@@ -241,7 +279,7 @@ ramp-capacity-9 = 
 
 ramp-capacity-0-foreground = ${color.red}
 ramp-capacity-1-foreground = ${color.red}
-ramp-capacity-foreground   = ${color.fg}
+ramp-capacity-foreground   = ${color.bg}
 bar-capacity-width = 10
 
 animation-charging-0 = 
@@ -258,12 +296,14 @@ animation-charging-framerate = 750
 type = internal/alsa
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
-format-volume-background = ${color.shade6}
+format-volume-background = ${color.shade4}
+format-volume-foreground = ${color.bg}
 label-volume = %percentage%%
 label-muted = "婢"
-label-muted-background = ${color.shade6}
+label-muted-background = ${color.shade4}
 label-muted-padding = 2
-
+format-muted-background = ${color.shade4}
+format-muted-foreground = ${color.bg}
 ramp-volume-0 = 奄
 ramp-volume-1 = 奄
 ramp-volume-2 = 奔
@@ -276,7 +316,10 @@ ramp-volume-6 = 墳
 type = custom/script
 exec = ~/.config/polybar/scripts/check-network
 format-background = ${color.shade4}
+format-foreground = ${color.bg}
 format-padding = 2
+click-left = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
 tail = true
 
 [module/date]
@@ -284,7 +327,8 @@ type = internal/date
 interval = 30
 label =  %time%
 label-padding = 2
-label-background = ${color.shade3}
+label-background = ${color.shade4}
+label-foreground = ${color.bg}
 time =  %I:%M %p
 time-alt =  %Y-%m-%d
 
@@ -292,8 +336,8 @@ time-alt =  %Y-%m-%d
 type = custom/text
 content = 襤
 content-padding = 2
-content-background = ${color.shade2}
-content-foreground = ${color.fg}
+content-background = ${color.shade4}
+content-foreground = ${color.bg}
 click-left = ~/.config/polybar/scripts/sysmenu
 click-right = ~/.config/polybar/scripts/sysmenu
 
@@ -301,44 +345,8 @@ click-right = ~/.config/polybar/scripts/sysmenu
 type = custom/text
 content =  
 content-padding = 2
-content-background = ${color.shade3}
-content-foreground = ${color.fg}
+content-background = ${color.shade4}
+content-foreground = ${color.bg}
 click-left = ~/.config/polybar/scripts/monitor
-
-[module/bspwm]
-type = internal/bspwm
-pin-workspace = true
-format-padding = 1
-
-;yicon-0 = 1;❶
-;icon-1 = 2;❷
-;icon-2 = 3;❸
-;icon-3 = 4;❹
-;icon-4 = 5;❺
-;icon-5 = 6;❻
-;icon-6 = 7;❼
-;icon-7 = 8;❽
-;icon-8 = 9;❾
-;icon-9 = 10;❿
-
-ws-icon-default = 
-
-format = <label-state>
-format-background = ${color.shade2}
-label-focused =  %name%
-label-occupied =  %name%
-label-urgent =  %name%
-label-empty =  %name%
-
-label-empty-padding = 1
-label-focused-padding = 1
-label-urgent-padding = 1
-label-occupied-padding = 1
-
-label-empty-foreground = ${color.fg}
-label-focused-foreground = ${color.acolor}
-label-urgent-foreground = ${color.curgent}
-label-occupied-foreground = ${color.coccupied}
-
 
 ;== EOF ========================================================

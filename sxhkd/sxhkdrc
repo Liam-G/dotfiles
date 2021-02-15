@@ -155,8 +155,10 @@ alt {_,+ shift} + r
 {XF86AudioPrev,XF86AudioNext,XF86AudioPlay}
 	playerctl {previous,next,play-pause}
 
-{XF86AudioMute,XF86AudioLowerVolume,XF86AudioRaiseVolume}
-	amixer -q set Master {toggle,2%-,2%+}
+{XF86AudioMute}
+	pactl set-sink-mute 0 toggle
+{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+	amixer -q set Master {2%-,2%+}
 
 #### Backlight
 {XF86MonBrightnessDown,XF86MonBrightnessUp}

@@ -23,13 +23,10 @@ fi
 
 fg &
 
-if [ -z "$(pgrep polybar)" ] ; then
-	~/.config/polybar/launch.sh &
-fi
-
-if [ -z "$(pgrep dunst)" ] ; then
-	~/.config/dunst/dunstwal &
-fi
+#if [ -z "$(pgrep dunst)" ] ; then
+#	~/.config/dunst/dunstwal &
+#fi
 
 numlockx &
 ~/.fehbg &
+autorandr -c 
